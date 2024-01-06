@@ -7,10 +7,6 @@ public class Cat extends Animal {
         System.out.println("Я веляю хвостом!");
     }
 
-    public Cat() {
-        this.tail = "New Cat!";
-    }
-
     @Override
     public void move() {
         System.out.println("Я прыгаю!");
@@ -19,6 +15,6 @@ public class Cat extends Animal {
 
     @Override
     public String toString() {
-        return tail;
+        return super.toString();
     }
 }
