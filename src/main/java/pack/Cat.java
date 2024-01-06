@@ -2,8 +2,11 @@ package pack;
 
 public class Cat extends Animal {
     public String name;
+    private static int counter = 1;
 
     public Cat() {
+        name = "Cat " + counter;
+        counter++;
     }
 
     public Cat(String name) {
@@ -16,12 +19,11 @@ public class Cat extends Animal {
 
     @Override
     public void move() {
-        System.out.println("Я прыгаю!");
-        super.move();
+        System.out.println("Я КОТ, я прыгаю!");
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.valueOf(name);
     }
 }

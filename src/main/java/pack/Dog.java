@@ -1,21 +1,20 @@
 package pack;
 
-public class Tiger extends Cat {
+public class Dog {
     String name;
     private static int counter = 1;
 
-    public Tiger() {
-        name = "Tiger " + counter;
+    public Dog() {
+        name = "Dog " + counter;
         counter++;
     }
 
-    public Tiger(String name) {
+    public Dog(String name) {
         this.name = name;
     }
 
-    @Override
     public void move() {
-        System.out.println("Я ТИГР, я бегу!");
+        System.out.println("Я СОБАКА, я бегу!");
     }
 
     @Override
