@@ -1,5 +1,8 @@
 package pack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericsTwoTuple<A, B> {
     public final A first;
     public final B second;
@@ -45,5 +48,18 @@ class TupleTest {
         GenericsThreeTuple<Cat, String, Integer> test2 = g();
         System.out.println(test1);
         System.out.println(test2);
+
+        List<Animal> animalList = new ArrayList<>();
+        animalList.add(new Animal("New Animal()"));
+        animalList.add(new Animal());
+
+        List<Cat> catList = new ArrayList<>();
+        catList.add(new Cat("New Cat()"));
+        catList.add(new Cat());
+
+        List<Tiger> tigerList = new ArrayList<>();
+        tigerList.add(new Tiger("New Tiger()"));
+        tigerList.add(new Tiger());
+
     }
 }

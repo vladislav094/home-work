@@ -1,7 +1,14 @@
 package pack;
 
 public class Cat extends Animal {
-    public String tail;
+    public String name;
+
+    public Cat() {
+    }
+
+    public Cat(String name) {
+        this.name = name;
+    }
 
     public void moveTail() {
         System.out.println("Я веляю хвостом!");

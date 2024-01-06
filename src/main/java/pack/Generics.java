@@ -17,7 +17,7 @@ public class Generics<T> {
 
     public static void main(String[] args) {
 
-        Generics<Animal> cat = new Generics<>(new Animal());
+        Generics<Animal> cat = new Generics<>(new Animal("Animal"));
         Animal a = cat.getA();
         cat.setA(new Cat());
     }
