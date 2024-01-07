@@ -44,17 +44,48 @@ class TupleTest {
     }
 
     public static void showExtendsWildcard(List<? extends Animal> animals) {
-        for (Animal animal: animals) {
+        for (Animal animal : animals) {
             animal.move();
         }
+        System.out.println();
     }
 
-    public static void showSuperWildcard(List<? super Cat> animals) {
-        for (int i = 0; i < animals.size(); i++) {
-            Object animal = animals.get(i);
+    public static void showSuperWildcard(List<? super Cat> cats) {
+        for (int i = 0; i < cats.size(); i++) {
+            Object animal = cats.get(i);
             System.out.println(animal.toString());
         }
+        System.out.println();
     }
+
+    /*
+    1:
+    Из данного списка можно получить только объекты суперклассов.
+    Во время компиляции кода неизвестно, объекты какого именно класса будут содержаться в листе
+    Предположим, это будут объекты Cat и мы попытаемся получить объект класса-предка(Cat) и
+    поместить его в переменную, имеющую тип класса-потомка Tiger.
+
+    2:
+    По этой же причине нельзя ничего положить в лист при использовании нижней границы wildcard (<? extends ...>)
+    Т.к объек-наследник не может ссылаться на объект-предок.
+     */
+    public static void showBadExampleExtendsWildcard(List<? extends Cat> cats) {
+        Animal animal = cats.get(0);
+//        Tiger tiger = cats.get(0);
+    }
+
+    public static void showBadExampleSuperWildcard(List<? super Cat> cats) {
+        cats.add(new Tiger());
+        cats.add(new Cat());
+//        cats.add(new Animal());
+//        нельзя добавить объект класса-предка в коллекцию состояющую из объектов класса-потомков
+    }
+
+    /*
+    Исключениями в Wildcard являются:
+    1 - возможность записать null для extends
+    2 - прочитать Object для super
+     */
 
     public static void main(String[] args) {
         GenericsTwoTuple<String, Integer> test1 = f();
@@ -84,6 +115,5 @@ class TupleTest {
 
 //        Нельзя передать коллекцию из элементов типа Tiger, т.к класс Tiger ниже в иерархии, чем класс Cat.
 //        showSuperWildcard(tigerList);
-
     }
 }
