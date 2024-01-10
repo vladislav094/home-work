@@ -2,11 +2,11 @@ package pack;
 
 public class Animal {
     public String name;
-    private static int counter = 1;
+    private static int counter = 0;
 
     public Animal() {
-        name = "Animal " + counter;
         counter++;
+        name = "Animal " + counter;
     }
 
     public Animal(String name) {

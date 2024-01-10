@@ -2,11 +2,12 @@ package pack;
 
 public class Cat extends Animal {
     public String name;
-    private static int counter = 1;
+    private static int counter = 0;
 
     public Cat() {
-        name = "Cat " + counter;
         counter++;
+        name = "Cat " + counter;
+
     }
 
     public Cat(String name) {
